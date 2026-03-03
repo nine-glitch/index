@@ -198,7 +198,97 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .mhc-blur-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
 .mhc-unlock-btn { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--ink); padding: 10px 20px; border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
 .mhc-unlock-btn:hover { background: var(--gold); }
+
+/* PRO MODAL */
+.pro-modal-overlay { display:none; position:fixed; inset:0; z-index:300; background:rgba(26,23,20,0.85); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px; }
+.pro-modal-overlay.active { display:flex; }
+.pro-modal-box { background:var(--bg); border:1px solid var(--gold); max-width:580px; width:100%; max-height:92vh; overflow-y:auto; animation:modalIn 0.35s ease; }
+.pro-modal-header { padding:28px 36px 0; border-bottom:1px solid var(--border); padding-bottom:20px; display:flex; align-items:flex-start; justify-content:space-between; gap:16px; }
+.pro-modal-stamp { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.pro-modal-title { font-family:'Playfair Display',serif; font-size:22px; font-style:italic; line-height:1.2; }
+.pro-modal-close { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--ink3); background:none; border:none; cursor:pointer; flex-shrink:0; margin-top:4px; }
+.pro-modal-inner { padding:28px 36px 36px; }
+
+/* DIETA INPUT */
+.dieta-form { margin-bottom:24px; }
+.dieta-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); margin-bottom:10px; display:block; }
+.dieta-textarea { width:100%; background:var(--card); border:1px solid var(--border); padding:14px 16px; font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink2); resize:none; outline:none; line-height:1.6; transition:border-color 0.2s; }
+.dieta-textarea:focus { border-color:var(--gold); }
+.dieta-textarea::placeholder { color:var(--ink3); opacity:0.7; }
+.dieta-hints { display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+.dieta-hint { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:1px; color:var(--ink3); border:1px solid var(--border); padding:4px 10px; cursor:pointer; transition:all 0.2s; }
+.dieta-hint:hover { border-color:var(--gold); color:var(--ink); }
+.dieta-submit { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:14px 32px; border:none; cursor:pointer; transition:background 0.2s; width:100%; margin-top:14px; }
+.dieta-submit:hover { background:var(--gold); }
+
+/* DICTAMEN */
+.dictamen { animation:fadeIn 0.6s ease; }
+.dictamen-header { text-align:center; padding-bottom:20px; border-bottom:2px solid var(--ink); margin-bottom:24px; }
+.dictamen-instituto { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--ink3); margin-bottom:8px; }
+.dictamen-titulo { font-family:'Playfair Display',serif; font-size:26px; font-weight:700; line-height:1.1; margin-bottom:4px; }
+.dictamen-subtitulo { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink2); }
+.dictamen-seccion { margin-bottom:24px; }
+.dictamen-seccion-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; border-bottom:1px solid var(--border); padding-bottom:6px; }
+.dictamen-texto { font-family:'Playfair Display',serif; font-size:15px; font-style:italic; color:var(--ink2); line-height:1.75; }
+.dictamen-texto strong { font-style:normal; color:var(--ink); font-weight:700; }
+.dictamen-señal { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--border); }
+.dictamen-señal:last-child { border:none; }
+.dictamen-señal-icon { font-family:'DM Mono',monospace; font-size:10px; color:var(--gold); flex-shrink:0; margin-top:2px; }
+.dictamen-señal-texto { font-size:14px; color:var(--ink2); line-height:1.6; }
+.dictamen-señal-texto em { font-family:'Playfair Display',serif; font-style:italic; font-size:13px; color:var(--ink3); display:block; margin-top:2px; }
+.dictamen-pronostico { border:1px solid var(--gold); padding:20px 24px; text-align:center; margin:24px 0; background:linear-gradient(135deg,#fdf8ee,#faf5e4); }
+.dictamen-pronostico-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.dictamen-pronostico-texto { font-family:'Playfair Display',serif; font-size:18px; font-style:italic; color:var(--ink); line-height:1.4; }
+.dictamen-riesgo { background:var(--card); border-left:3px solid #c0392b; padding:14px 18px; margin-top:16px; }
+.dictamen-riesgo-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:#c0392b; margin-bottom:6px; }
+.dictamen-riesgo-texto { font-size:13px; color:var(--ink2); line-height:1.6; font-style:italic; }
+.dictamen-senial { display:flex; gap:12px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--border); }
+.dictamen-senial:last-child { border:none; }
+.dictamen-senial-icon { font-family:'DM Mono',monospace; font-size:10px; color:var(--gold); flex-shrink:0; margin-top:2px; }
+.dictamen-senial-texto { font-size:14px; color:var(--ink2); line-height:1.6; }
+.dictamen-senial-texto strong { color:var(--ink); }
+.dictamen-senial-texto em { font-family:'Playfair Display',serif; font-style:italic; font-size:13px; color:var(--ink3); display:block; margin-top:2px; }
+.dictamen-firma { text-align:center; padding-top:20px; border-top:1px solid var(--border); margin-top:24px; }
+.dictamen-firma-nombre { font-family:'Playfair Display',serif; font-size:13px; font-style:italic; color:var(--ink3); }
+.dictamen-firma-cargo { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2px; color:var(--ink3); margin-top:2px; }
+.dictamen-share { display:flex; gap:8px; justify-content:center; margin-top:20px; flex-wrap:wrap; }
+.dictamen-share-btn { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); background:transparent; padding:10px 18px; border:1px solid var(--border); cursor:pointer; transition:all 0.2s; }
+.dictamen-share-btn:hover { border-color:var(--gold); color:var(--ink); }
+.pro-loading { text-align:center; padding:40px 0; }
+.pro-loading-text { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); margin-top:16px; }
+.pro-loading-steps { margin-top:20px; }
+.pro-loading-step { font-size:12px; color:var(--ink3); padding:6px 0; font-style:italic; }
+
+
+/* HOROSCOPO + SCORE */
+.dictamen-score-row { display:flex; align-items:center; gap:16px; margin-bottom:14px; }
+.dictamen-score-num { font-family:'Playfair Display',serif; font-size:42px; font-weight:700; line-height:1; }
+.dictamen-score-compat { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; }
+.dictamen-score-sub { font-size:12px; color:var(--ink3); margin-top:3px; }
+.dictamen-horoscopo { border:1px solid var(--border); padding:20px 24px; margin:20px 0; background:var(--card); position:relative; overflow:hidden; }
+.dictamen-horoscopo::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--gold),transparent); }
+.dictamen-horoscopo-signo { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+.dictamen-horoscopo-titulo { font-family:'Playfair Display',serif; font-size:20px; font-style:italic; margin-bottom:4px; }
+.dictamen-horoscopo-consejo { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:1px; color:var(--ink); margin-top:14px; padding:10px 14px; border-left:2px solid var(--gold); background:var(--bg); }
+.dictamen-horoscopo-bacterias { font-size:12px; color:var(--ink3); margin-top:10px; font-style:italic; line-height:1.6; }
+
+/* PAYWALL MODAL */
+.paywall-modal-overlay { display:none; position:fixed; inset:0; z-index:300; background:rgba(26,23,20,0.85); backdrop-filter:blur(6px); align-items:center; justify-content:center; padding:20px; }
+.paywall-modal-overlay.active { display:flex; }
+.paywall-modal-box { background:var(--bg); border:1px solid var(--gold); max-width:420px; width:100%; padding:36px; animation:modalIn 0.35s ease; text-align:center; }
+.paywall-modal-stamp { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.paywall-modal-title { font-family:'Playfair Display',serif; font-size:24px; font-style:italic; margin-bottom:8px; line-height:1.2; }
+.paywall-modal-sub { font-size:13px; color:var(--ink3); margin-bottom:24px; line-height:1.6; }
+.paywall-modal-features { text-align:left; margin-bottom:24px; }
+.paywall-modal-feature { font-size:12px; color:var(--ink2); padding:7px 0; border-bottom:1px solid var(--border); display:flex; gap:10px; }
+.paywall-modal-feature::before { content:"C6"; color:var(--gold); font-size:7px; margin-top:3px; flex-shrink:0; }
+.paywall-modal-price { font-family:'Playfair Display',serif; font-size:40px; font-weight:700; margin-bottom:4px; }
+.paywall-modal-price span { font-size:16px; font-weight:400; color:var(--ink3); }
+.paywall-modal-note { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:1px; color:var(--ink3); margin-top:12px; }
+.paywall-modal-close { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--ink3); background:none; border:none; cursor:pointer; margin-top:16px; display:block; width:100%; }
+#paypal-container-4B8EC6PUTRQQG { margin:16px 0 0; min-height:50px; }
 </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAA78gteWu5opW8cHuKbJ2B1sjyznxb2uSq3Oz0i3t4sXLm7RANt7DRLSu2u7hHHyRr-Be0FaFhZJjR1ls&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
 </head>
 <body>
 
@@ -277,32 +367,33 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
   <div class="section-label">An&aacute;lisis completo</div>
   <div class="paywall">
     <div class="paywall-label">CacaMatch Pro</div>
-    <div class="paywall-title">El informe que su microbioma merece</div>
-    <div class="paywall-sub">Un an&aacute;lisis profundo, descargable y compartible. Ciencia real aplicada con la seriedad que el tema exige.</div>
+    <div class="paywall-title">El dictamen que su microbioma merece</div>
+    <div class="paywall-sub">No necesitamos la caca de su persona de inter&eacute;s. Solo lo que come. La dieta es la caca antes de ser caca.</div>
     <div class="pro-icons-row">
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#9676;</span><span class="pro-icon-label">Signo Bristol</span></div>
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128302;</span><span class="pro-icon-label">Hor&oacute;scopo</span></div>
       <div class="pro-icon-item"><span class="pro-icon-emoji">&#128148;</span><span class="pro-icon-label">Compatibilidad</span></div>
-      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128197;</span><span class="pro-icon-label">Evoluci&oacute;n mensual</span></div>
-      <div class="pro-icon-item"><span class="pro-icon-emoji">&#127942;</span><span class="pro-icon-label">Ranking global</span></div>
-      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128300;</span><span class="pro-icon-label">Bacterias exclusivas</span></div>
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#9888;</span><span class="pro-icon-label">Riesgo intestinal</span></div>
     </div>
     <div class="pro-blur-wrap">
       <div class="pro-blur-inner">
-        <div style="font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:#4a4540;margin-bottom:8px;">Compatibilidad intestinal &mdash; Su perfil</div>
-        <div style="font-size:12px;color:#9a9088;margin-bottom:6px;">&#9670; Tipo 4 &amp; Tipo 3: Alta compatibilidad emocional. Microbiota complementaria.</div>
-        <div style="font-size:12px;color:#9a9088;margin-bottom:6px;">&#9670; Tipo 4 &amp; Tipo 6: Atracción intensa, conflicto inevitable. Toxicidad bacteriana moderada.</div>
-        <div style="font-size:12px;color:#9a9088;">&#9670; Tipo 4 &amp; Tipo 2: Respeto mutuo. Ritmos incompatibles. Relaci&oacute;n de largo plazo posible.</div>
+        <div style="font-size:11px;color:#9a9088;margin-bottom:6px;font-family:'DM Mono',monospace;letter-spacing:1px;">DICTAMEN DE MUESTRA &mdash; TIPO 4</div>
+        <div style="font-family:'Playfair Display',serif;font-size:14px;font-style:italic;color:#4a4540;margin-bottom:8px;">Bristol 4 con ascendente en <em>Lactobacillus acidophilus</em></div>
+        <div style="font-size:12px;color:#9a9088;margin-bottom:5px;">&#9670; Sigue defecando as&iacute; 6 meses y su piel va a oler a yogur agrio con pretensiones.</div>
+        <div style="font-size:12px;color:#9a9088;margin-bottom:5px;">&#9670; Compatible con Tipo 5 &mdash; atracci&oacute;n olfativa estimada: desconcertante pero inevitable.</div>
+        <div style="font-size:12px;color:#9a9088;">&#9670; Tipo peligroso: el Tipo 2. Ritmos incompatibles. Convivencia microbiana desaconsejada.</div>
       </div>
       <div class="pro-blur-overlay"><span class="pro-blur-badge">&#128274; Solo Pro</span></div>
     </div>
     <div class="paywall-features">
-      <div class="paywall-feature">Compatibilidad intestinal completa con los 7 tipos restantes</div>
-      <div class="paywall-feature">Informe mensual de evoluci&oacute;n de tu microbiota</div>
-      <div class="paywall-feature">Ranking global: Intestinos del Mes</div>
-      <div class="paywall-feature">Caricaturas bacterianas victorianas exclusivas de tu perfil</div>
-      <div class="paywall-feature">Informe PDF descargable con dise&ntilde;o editorial</div>
+      <div class="paywall-feature">Su signo intestinal completo: tipo Bristol con bacteria ascendente</div>
+      <div class="paywall-feature">Hor&oacute;scopo de salud a 6 meses: pelo, piel, humor, olor. Wildeanamente lapidario.</div>
+      <div class="paywall-feature">Compatibilidad con la dieta de su persona de inter&eacute;s: score + an&aacute;lisis MHC</div>
+      <div class="paywall-feature">4 se&ntilde;ales de campo a observar en el otro antes de comprometerse microbianamente</div>
+      <div class="paywall-feature">Pron&oacute;stico de convivencia intestinal + tipo peligroso para usted</div>
     </div>
     <div class="paywall-price">USD 3.99 <span>pago &uacute;nico</span></div>
-    <button class="paywall-btn" onclick="goToPay()">Obtener informe completo &rarr;</button>
+    <button class="paywall-btn" onclick="goToPay()">Obtener dictamen &rarr;</button>
     <div class="paywall-note">Pago seguro &middot; Sin suscripci&oacute;n &middot; Sin almacenamiento de datos</div>
   </div>
 </section>
@@ -396,6 +487,7 @@ function startAnalysis() {
 
 async function callClaudeAPI() {
   var GEMINI_KEY = "PEGA_TU_KEY_AQUI";
+  window._apiKey = GEMINI_KEY;
   var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa=complementariedad inmune, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {"bristol_tipo":"Tipo N","bristol_desc":"desc clinica","nombre":"El Algo","nombre_italico":"Algo","transito":"velocidad","aroma":"descripcion simbolica","bacterias_principales":[{"nombre":"Bacteria X","efecto":"efecto documentado"}],"personalidad":"2-3 oraciones","neuroquimica":"neurotransmisores","compatibilidad_mhc":{"tipos_compatibles":"Tipo X y Tipo Y"}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias reales. Rioplatense ironico jamas vulgar.';
   var resp = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_KEY,
@@ -419,6 +511,7 @@ async function callClaudeAPI() {
 }
 
 function showResult(p) {
+  window._cacaProfile = p;
   document.getElementById('analysis-widget').style.display = 'none';
   document.getElementById('img-preview-wrap').style.display = 'none';
   var rw = document.getElementById('result-widget');
@@ -477,7 +570,107 @@ function shareError() {
   else { window.open('https://wa.me/?text=' + txt, '_blank'); }
 }
 
-function goToPay() { alert('Integración de pago próximamente. Su microbioma agradece la paciencia.'); }
+function goToPay() {
+  document.getElementById('paywall-modal').classList.add('active');
+  document.getElementById('paypal-container-4B8EC6PUTRQQG').innerHTML = '';
+  if (window.paypal) {
+    paypal.HostedButtons({
+      hostedButtonId: '4B8EC6PUTRQQG',
+      onApprove: function() { openDictamen(); }
+    }).render('#paypal-container-4B8EC6PUTRQQG');
+  }
+}
+
+function openDictamen() {
+  document.getElementById('paywall-modal').classList.remove('active');
+  document.getElementById('pro-modal').classList.add('active');
+  document.getElementById('pro-dieta-form').style.display = 'block';
+  document.getElementById('pro-dictamen').style.display = 'none';
+  document.getElementById('pro-loading').style.display = 'none';
+  var p = window._cacaProfile;
+  if (p) document.getElementById('pro-modal-subtitle').textContent = p.nombre + ' · ' + (p.bristol_tipo||p.bristol||'');
+}
+
+async function generarDictamen() {
+  var dieta = document.getElementById('dieta-input').value.trim();
+  if (!dieta) { document.getElementById('dieta-input').focus(); return; }
+  var p = window._cacaProfile || {};
+  document.getElementById('pro-dieta-form').style.display = 'none';
+  document.getElementById('pro-loading').style.display = 'block';
+  var sys = 'Sos el Director Cientifico del Instituto de Psicogastroentretenimiento Aplicado. Redactas Dictamenes de Compatibilidad Intestinal con tono victoriano-ironico, wildeanamente lapidario, sin vulgaridad. Base cientifica real: microbioma, gut-brain axis, MHC Wedekind. El horoscopo intestinal es tu firma: combinas signo Bristol con bacteria dominante para predecir el futuro corporal con ironia brutal pero cientificamente fundada. RESPONDES UNICAMENTE JSON sin markdown con esta estructura exacta: {"diagnostico_propio":"una linea brutal sobre quien es esta persona intestinalmente","signo_intestinal":"Bristol N con ascendente en [bacteria predominante]","horoscopo":{"titulo":"titulo dramatico del horoscopo ej: El Oraculo Fermentado","prediccion_6meses":"prediccion ironica y cientifica de que le pasara si sigue defecando asi: pelo, piel, energia, olor, humor. 2-3 oraciones wildeanamente lapidarias","consejo_urgente":"una sola accion concreta con base real: hidratarse, fermentados, reducir tal cosa, etc. Con ironia","bacterias_en_juego":"que bacterias van a dominar su futuro segun este patron y que implica"},"tipo_ideal":{"bristol":"Tipo N","razon":"por que ese tipo complementa microbiologicamente"},"senales_campo":[{"observacion":"que mirar en el otro","interpretacion":"que significa microbianamente","veredicto":"una linea ironica"},{"observacion":"...","interpretacion":"...","veredicto":"..."},{"observacion":"...","interpretacion":"...","veredicto":"..."},{"observacion":"...","interpretacion":"...","veredicto":"..."}],"analisis_dieta":{"tipo_bristol_inferido":"Tipo N","microbioma_estimado":"descripcion breve","compatibilidad":"ALTA","score":85,"analisis":"3-4 oraciones wildeanamente ironicas sobre esta combinacion microbiana"},"pronostico":"una sola frase lapidaria estilo Wilde sobre esta union intestinal","riesgo":{"tipo_peligroso":"Tipo N","razon":"por que seria catastrofe microbiana"}}';
+  var ctx = 'Mi perfil intestinal: ' + (p.bristol_tipo||p.bristol||'Tipo desconocido') + '. ' + (p.bristol_desc||'') + '. Bacterias predominantes: ' + (p.bacterias_principales ? p.bacterias_principales.map(function(b){return b.nombre;}).join(', ') : 'desconocidas') + '. Mi personalidad segun el Instituto: ' + (p.personalidad||'') + '. Dieta de mi persona de interes: ' + dieta;
+  try {
+    var resp = await fetch(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' + window._apiKey,
+      { method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: sys }] },
+          contents: [{ role: 'user', parts: [{ text: ctx }]}],
+          generationConfig: { maxOutputTokens: 1500, temperature: 0.9 }
+        })
+      }
+    );
+    if (!resp.ok) throw new Error('Error ' + resp.status);
+    var data = await resp.json();
+    var text = data.candidates[0].content.parts[0].text;
+    var d = JSON.parse(text.replace(/```json|```/g, '').trim());
+    mostrarDictamen(d, p);
+  } catch(e) {
+    document.getElementById('pro-loading').style.display = 'none';
+    document.getElementById('pro-dieta-form').style.display = 'block';
+  }
+}
+
+function mostrarDictamen(d, p) {
+  document.getElementById('pro-loading').style.display = 'none';
+  var el = document.getElementById('pro-dictamen');
+  el.style.display = 'block';
+  var compat = d.analisis_dieta && d.analisis_dieta.compatibilidad || 'MEDIA';
+  var score = d.analisis_dieta && d.analisis_dieta.score || 70;
+  var compatColor = {'ALTA':'#2d7a4f','MEDIA':'#c4973a','BAJA':'#c07030','CATASTROFICA':'#c0392b'}[compat] || '#c4973a';
+  var senales = (d.senales_campo||[]).map(function(s) {
+    return '<div class="dictamen-senial"><div class="dictamen-senial-icon">&#9670;</div><div class="dictamen-senial-texto"><strong>' + s.observacion + '</strong> &mdash; ' + s.interpretacion + '<em>' + s.veredicto + '</em></div></div>';
+  }).join('');
+  el.innerHTML = '<div class="dictamen">'
+    + '<div class="dictamen-header"><div class="dictamen-instituto">Instituto de Psicogastroentretenimiento Aplicado</div><div class="dictamen-titulo">Dictamen de Compatibilidad Intestinal</div><div class="dictamen-subtitulo">Emitido para: ' + (p.nombre||'El Analizado') + '</div></div>'
+    + '<div class="dictamen-seccion"><div class="dictamen-seccion-label">Su diagnóstico</div><div class="dictamen-texto">' + (d.diagnostico_propio||'') + '</div></div>'
+    + '<div class="dictamen-seccion"><div class="dictamen-seccion-label">El tipo que necesita</div><div class="dictamen-texto"><strong>' + (d.tipo_ideal&&d.tipo_ideal.bristol||'') + '</strong> &mdash; ' + (d.tipo_ideal&&d.tipo_ideal.razon||'') + '</div></div>'
+    + '<div class="dictamen-seccion"><div class="dictamen-seccion-label">Lo que debe observar en el campo</div>' + senales + '</div>'
+    + '<div class="dictamen-seccion"><div class="dictamen-seccion-label">Análisis de la dieta declarada</div>'
+    + '<div class="dictamen-score-row"><div class="dictamen-score-num" id="dc-score">' + score + '</div><div><div class="dictamen-score-compat" id="dc-compat">' + compat + '</div><div class="dictamen-score-sub">' + (d.analisis_dieta&&d.analisis_dieta.tipo_bristol_inferido||'') + ' inferido &middot; ' + (d.analisis_dieta&&d.analisis_dieta.microbioma_estimado||'') + '</div></div></div>'
+    + '<div class="dictamen-texto">' + (d.analisis_dieta&&d.analisis_dieta.analisis||'') + '</div></div>'
+    + '<div class="dictamen-pronostico"><div class="dictamen-pronostico-label">Pronóstico del Instituto</div><div class="dictamen-pronostico-texto">&ldquo;' + (d.pronostico||'') + '&rdquo;</div></div>'
+    + '<div class="dictamen-riesgo"><div class="dictamen-riesgo-label">&#9888; Tipo peligroso para usted</div><div class="dictamen-riesgo-texto"><strong>' + (d.riesgo&&d.riesgo.tipo_peligroso||'') + '</strong> &mdash; ' + (d.riesgo&&d.riesgo.razon||'') + '</div></div>'
+    + '<div class="dictamen-horoscopo">'
+    + '<div class="dictamen-horoscopo-signo">&#9670; ' + (d.signo_intestinal||'') + '</div>'
+    + '<div class="dictamen-horoscopo-titulo">' + (d.horoscopo&&d.horoscopo.titulo||'El Oraculo Fermentado') + '</div>'
+    + '<div class="dictamen-texto" style="margin-top:10px;">' + (d.horoscopo&&d.horoscopo.prediccion_6meses||'') + '</div>'
+    + '<div class="dictamen-horoscopo-consejo">&#9656; ' + (d.horoscopo&&d.horoscopo.consejo_urgente||'') + '</div>'
+    + '<div class="dictamen-horoscopo-bacterias">' + (d.horoscopo&&d.horoscopo.bacterias_en_juego||'') + '</div>'
+    + '</div>'
+    + '<div class="dictamen-firma"><div class="dictamen-firma-nombre">Dr. Intestino Aplicado</div><div class="dictamen-firma-cargo">Director &middot; Instituto de Psicogastroentretenimiento Aplicado &middot; 2026</div></div>'
+    + '<div class="dictamen-share"><button class="dictamen-share-btn" onclick="shareDictamen()">&#8679; Compartir dictamen</button><button class="dictamen-share-btn" onclick="resetProModal()">Analizar otra persona</button></div>'
+    + '</div>';
+  document.getElementById('pro-modal').querySelector('.pro-modal-box').scrollTop = 0;
+  var sn = el.querySelector('.dictamen-score-num');
+  var sc = el.querySelector('.dictamen-score-compat');
+  if (sn) sn.style.color = compatColor;
+  if (sc) sc.style.color = compatColor;
+}
+
+function shareDictamen() {
+  var msg = 'El Instituto de Psicogastroentretenimiento me emitió un Dictamen de Compatibilidad Intestinal. La ciencia intestinal no miente. ¿Y vos? https://cacamatch.vercel.app/';
+  if (navigator.share) { navigator.share({ text: msg }); }
+  else { navigator.clipboard.writeText(msg); alert('Copiado. El dictamen merece difusión.'); }
+}
+
+function resetProModal() {
+  document.getElementById('dieta-input').value = '';
+  document.getElementById('pro-dictamen').style.display = 'none';
+  document.getElementById('pro-dieta-form').style.display = 'block';
+  document.querySelector('.pro-modal-box').scrollTop = 0;
+}
+
 
 function resetModal() {
   document.getElementById('modal').classList.remove('active');
@@ -530,5 +723,68 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
   </div>
 </div>
 
+<!-- PAYWALL MODAL -->
+<div class="paywall-modal-overlay" id="paywall-modal">
+  <div class="paywall-modal-box">
+    <div class="paywall-modal-stamp">CacaMatch Pro &middot; Dictamen oficial</div>
+    <div class="paywall-modal-title">El dictamen que su microbioma merece</div>
+    <div class="paywall-modal-sub">Un pago. Un dictamen. Acceso inmediato.</div>
+    <div class="paywall-modal-features">
+      <div class="paywall-modal-feature">Su signo intestinal: Bristol + bacteria ascendente</div>
+      <div class="paywall-modal-feature">Hor&oacute;scopo de salud a 6 meses &mdash; lapidario</div>
+      <div class="paywall-modal-feature">Compatibilidad con la dieta de su persona de inter&eacute;s</div>
+      <div class="paywall-modal-feature">4 se&ntilde;ales de campo a observar antes de comprometerse</div>
+      <div class="paywall-modal-feature">Pron&oacute;stico + tipo intestinal peligroso para usted</div>
+    </div>
+    <div class="paywall-modal-price">USD 3.99 <span>pago &uacute;nico</span></div>
+    <div id="paypal-container-4B8EC6PUTRQQG"></div>
+    <div class="paywall-modal-note">Pago seguro v&iacute;a PayPal &middot; Tarjeta o cuenta PayPal &middot; Acceso inmediato</div>
+    <button class="paywall-modal-close" onclick="document.getElementById('paywall-modal').classList.remove('active')">&#215; Cancelar</button>
+  </div>
+</div>
+
+<!-- PRO MODAL -->
+<div class="pro-modal-overlay" id="pro-modal">
+  <div class="pro-modal-box">
+    <div class="pro-modal-header">
+      <div>
+        <div class="pro-modal-stamp">CacaMatch Pro &middot; Dictamen oficial</div>
+        <div class="pro-modal-title">Compatibilidad Intestinal</div>
+        <div id="pro-modal-subtitle" style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;color:var(--ink3);margin-top:4px;"></div>
+      </div>
+      <button class="pro-modal-close" onclick="document.getElementById('pro-modal').classList.remove('active')">&#215; Cerrar</button>
+    </div>
+    <div class="pro-modal-inner">
+      <div id="pro-dieta-form">
+        <p style="font-family:'Playfair Display',serif;font-size:15px;font-style:italic;color:var(--ink2);margin-bottom:20px;line-height:1.7;">El Instituto no necesita ver la muestra de su persona de inter&eacute;s. Solo necesita saber <em>lo que come</em>. La dieta es la caca antes de ser caca.</p>
+        <div class="dieta-form">
+          <label class="dieta-label" for="dieta-input">Describa la dieta de su persona de inter&eacute;s</label>
+          <textarea class="dieta-textarea" id="dieta-input" rows="4" placeholder="Come mucha carne, poco verde, caf&eacute; en ayunas, casi nada de agua&hellip;"></textarea>
+          <div class="dieta-hints">
+            <span class="dieta-hint" onclick="document.getElementById('dieta-input').value='Carnivoro estricto, casi sin verduras, mucha proteina animal, poco agua'">Carnivoro</span>
+            <span class="dieta-hint" onclick="document.getElementById('dieta-input').value='Vegano, mucha fibra, legumbres, fermentados, infusiones'">Vegano</span>
+            <span class="dieta-hint" onclick="document.getElementById('dieta-input').value='Dieta mediterranea, aceite de oliva, pescado, verduras, vino ocasional'">Mediterraneo</span>
+            <span class="dieta-hint" onclick="document.getElementById('dieta-input').value='Ultra procesados, comida rapida, poca agua, mucho cafe y alcohol'">Ultra procesado</span>
+            <span class="dieta-hint" onclick="document.getElementById('dieta-input').value='Sin gluten, sin lacteos, muy restrictivo, mucho estres alimentario'">Restrictivo</span>
+          </div>
+          <button class="dieta-submit" onclick="generarDictamen()">Emitir dictamen &rarr; USD 3.99</button>
+        </div>
+        <p style="font-family:'DM Mono',monospace;font-size:8px;letter-spacing:1px;color:var(--ink3);text-align:center;margin-top:8px;">Pago seguro &middot; Dictamen instant&aacute;neo &middot; Sin almacenamiento de datos</p>
+      </div>
+      <div id="pro-loading" style="display:none;">
+        <div class="pro-loading">
+          <div style="font-size:24px;color:var(--gold);">&#9670;</div>
+          <div class="pro-loading-text">El Instituto delibera&hellip;</div>
+          <div class="pro-loading-steps">
+            <div class="pro-loading-step">Analizando microbioma declarado&hellip;</div>
+            <div class="pro-loading-step">Cruzando con registro MHC&hellip;</div>
+            <div class="pro-loading-step">Redactando con la gravedad que el caso merece&hellip;</div>
+          </div>
+        </div>
+      </div>
+      <div id="pro-dictamen" style="display:none;"></div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
