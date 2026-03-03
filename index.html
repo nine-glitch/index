@@ -111,6 +111,93 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 .a-step-icon { font-size:10px; width:14px; flex-shrink:0; }
 .a-bar-wrap { height:2px; background:var(--border); margin-top:28px; }
 .a-bar { height:2px; background:var(--gold); width:0; transition:width 10s linear; }
+
+/* RITUAL COPY */
+.ritual-hint { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1.5px; color: var(--ink3); margin-top: 14px; line-height: 1.8; }
+.ritual-hint span { color: var(--gold); }
+
+/* SHARE SOCIAL */
+.hero-share { margin-top: 20px; }
+.hero-share-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); margin-bottom: 10px; }
+.share-icons { display: flex; gap: 10px; justify-content: center; }
+.share-icon { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink3); text-decoration: none; padding: 6px 12px; border: 1px solid var(--border); transition: all 0.2s; }
+.share-icon:hover { border-color: var(--gold); color: var(--ink); }
+
+/* SAMPLE PROFILES */
+#samples { border-top: 1px solid var(--border); }
+.samples-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 560px) { .samples-grid { grid-template-columns: 1fr; } }
+.sample-card { border: 1px solid var(--border); padding: 20px; background: var(--card); position: relative; overflow: hidden; }
+.sample-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); opacity: 0.4; }
+.sample-bristol { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; margin-bottom: 8px; }
+.sample-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; margin-bottom: 6px; line-height: 1.2; }
+.sample-name em { font-style: italic; color: var(--gold); }
+.sample-aroma { font-size: 12px; color: var(--ink3); font-style: italic; margin-bottom: 10px; line-height: 1.5; }
+.sample-bacteria { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 1px; color: var(--ink3); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 10px; margin-top: 8px; }
+.samples-cta { text-align: center; margin-top: 28px; }
+.samples-cta-text { font-family: 'Playfair Display', serif; font-size: 16px; font-style: italic; color: var(--ink2); margin-bottom: 16px; }
+
+/* SHARE IN RESULT */
+.result-share-row { display: flex; gap: 8px; margin-top: 16px; justify-content: center; }
+.result-share-icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--ink3); background: transparent; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+.result-share-icon:hover { border-color: var(--gold); color: var(--ink); background: #fdf8f0; }
+.share-icons-hero { display: flex; gap: 8px; justify-content: center; }
+.share-icon-hero { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: var(--ink3); text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+.share-icon-hero:hover { border-color: var(--gold); color: var(--ink); background: #fdf8f0; }
+
+/* PRO BLUR TEASER */
+.pro-blur-wrap { position: relative; margin: 20px 0; }
+.pro-blur-inner { filter: blur(5px); pointer-events: none; user-select: none; border: 1px solid var(--border); padding: 16px 20px; }
+.pro-blur-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.pro-blur-badge { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--ink); padding: 8px 16px; }
+.pro-icons-row { display: flex; gap: 20px; justify-content: center; margin: 20px 0 24px; flex-wrap: wrap; }
+.pro-icon-item { text-align: center; }
+.pro-icon-emoji { font-size: 22px; display: block; margin-bottom: 4px; }
+.pro-icon-label { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 1px; color: var(--ink3); text-transform: uppercase; }
+
+/* IMAGE PREVIEW */
+.img-preview-wrap { display:none; position:relative; margin-top:20px; max-width:320px; margin-left:auto; margin-right:auto; }
+.img-preview-wrap img { width:100%; display:block; filter:sepia(0.4) brightness(0.92); border:1px solid var(--border); }
+.img-preview-overlay { position:absolute; bottom:0; left:0; right:0; background:rgba(26,23,20,0.72); padding:10px 14px; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:1.5px; color:#faf8f3; line-height:1.6; }
+
+/* RITUAL STEPS improved */
+.ritual-steps { text-align:left; }
+.a-step { font-size:13px; color:var(--ink3); padding:10px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; transition:color 0.4s; }
+.a-step.done { color:var(--ink); }
+.a-step.active { color:var(--gold); }
+.ritual-final { font-family:'Playfair Display',serif; font-size:15px; font-style:italic; color:var(--ink2); text-align:center; margin-top:24px; line-height:1.6; opacity:0; transition:opacity 1s ease; }
+.ritual-final.show { opacity:1; }
+
+/* PRO BANNER in result */
+.pro-banner { border:1px solid var(--gold); padding:16px 20px; margin-top:20px; background:linear-gradient(135deg,#fdf8ee,#faf5e4); text-align:center; }
+.pro-banner-label { font-family:'DM Mono',monospace; font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+.pro-banner-text { font-family:'Playfair Display',serif; font-size:14px; font-style:italic; color:var(--ink2); margin-bottom:12px; line-height:1.5; }
+.pro-banner-blur { filter:blur(3px); font-size:12px; color:var(--ink3); margin-bottom:12px; pointer-events:none; user-select:none; }
+.pro-banner-btn { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--bg); background:var(--ink); padding:10px 24px; border:none; cursor:pointer; transition:background 0.2s; }
+.pro-banner-btn:hover { background:var(--gold); }
+.ritual-timer { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; color:var(--ink3); text-align:center; margin-top:16px; }
+.ritual-timer.urgent { color:var(--gold); }
+.a-step-extra { font-size:13px; color:var(--ink3); padding:10px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; opacity:0; transition:opacity 0.6s ease, color 0.4s; }
+.a-step-extra.show { opacity:1; }
+.a-step-extra.active { color:var(--gold); }
+.a-step-extra.done { color:var(--ink); opacity:1; }
+.share-error-btn { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); background:transparent; padding:10px 20px; border:1px solid var(--border); cursor:pointer; transition:all 0.2s; margin-top:12px; display:inline-block; }
+.share-error-btn:hover { border-color:var(--gold); color:var(--ink); }
+
+/* BACTERIA LIST */
+.bacteria-list { margin-bottom: 20px; }
+.bacteria-row { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.bacteria-name { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--ink); display: block; margin-bottom: 3px; font-style: italic; }
+.bacteria-efecto { font-size: 13px; color: var(--ink3); line-height: 1.5; display: block; }
+
+/* MHC PAYWALL */
+.mhc-block { margin: 4px 0 20px; }
+.mhc-science { font-size: 12px; color: var(--ink3); font-style: italic; margin-bottom: 12px; line-height: 1.6; border-left: 2px solid var(--gold); padding-left: 12px; }
+.mhc-blur-wrap { position: relative; }
+.mhc-blur { filter: blur(5px); font-family: 'Playfair Display', serif; font-size: 14px; color: var(--ink2); padding: 12px 16px; border: 1px solid var(--border); pointer-events: none; user-select: none; line-height: 1.6; }
+.mhc-blur-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.mhc-unlock-btn { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--ink); padding: 10px 20px; border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.mhc-unlock-btn:hover { background: var(--gold); }
 </style>
 </head>
 <body>
@@ -118,6 +205,7 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
 <nav>
   <div class="nav-logo">Caca<em>Match</em></div>
   <div class="nav-links">
+    <a href="#samples">Ejemplos</a>
     <a href="#pro">Pro</a>
   </div>
 </nav>
@@ -134,11 +222,55 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
     <label for="file-input" class="hero-cta" style="cursor:pointer">Iniciar an&aacute;lisis</label>
     <input type="file" id="file-input" accept="image/*" style="display:none">
   </div>
+  <p class="ritual-hint">Sub&iacute; tu foto &nbsp;<span>&#9670;</span>&nbsp; 10 seg de lectura victoriana &nbsp;<span>&#9670;</span>&nbsp; Tu perfil intestinal gratis</p>
+  <div class="hero-share">
+    <p class="hero-share-label">Desafi&aacute; a alguien que necesita terapia intestinal</p>
+    <div class="share-icons-hero"><a class="share-icon-hero" href="https://twitter.com/intent/tweet?text=Descubr%C3%AD+mi+tipo+intestinal+con+CacaMatch.+%C2%BFEl+tuyo%3F+cacamatch.vercel.app" target="_blank" title="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a class="share-icon-hero" href="https://wa.me/?text=Descubr%C3%AD+mi+tipo+intestinal+con+CacaMatch.+%C2%BFEl+tuyo%3F+cacamatch.vercel.app" target="_blank" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a><a class="share-icon-hero" href="https://www.facebook.com/sharer/sharer.php?u=https://cacamatch.vercel.app" target="_blank" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a><a class="share-icon-hero" href="#" onclick="if(navigator.share){navigator.share({text:'Descubrí mi tipo intestinal con CacaMatch. \u00bfEl tuyo? https://cacamatch.vercel.app'})}return false;" title="Más opciones (IG, TikTok...)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></a></div>
+  </div>
   <p class="disclaimer-hero">Esto no es un diagn&oacute;stico m&eacute;dico. Es entretenimiento con base cient&iacute;fica real. No almacenamos ning&uacute;n dato. Su dignidad permanece intacta.</p>
 </div>
 
 
 <div class="divider"></div>
+
+<section id="samples">
+  <div class="section-label">Perfiles de muestra</div>
+  <div class="samples-grid">
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 4 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Cl&aacute;sico Sereno</em></div>
+      <div class="sample-aroma">Notas de tierra h&uacute;meda despu&eacute;s de lluvia. Inofensivo para el entorno, memorable para quien lo conoce.</div>
+      <div class="sample-bacteria">Lactobacillus acidophilus dominante &middot; flora diversa &middot; equilibrio envidiable</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 6 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Impulsivo Brillante</em></div>
+      <div class="sample-aroma">Urgente, sin filtros, honesto hasta el dolor. Como tus mensajes a las 2am.</div>
+      <div class="sample-bacteria">Bacteroides fragilis predominante &middot; alta actividad fermentativa &middot; microbiota territorial</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 2 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Estoico Tenaz</em></div>
+      <div class="sample-aroma">Profundo, concentrado, patient&iacute;simo. Llega cuando decide llegar.</div>
+      <div class="sample-bacteria">Akkermansia muciniphila escasa &middot; tr&aacute;nsito lento &middot; fibra insuficiente, quiz&aacute;s emociones tambi&eacute;n</div>
+    </div>
+
+    <div class="sample-card">
+      <div class="sample-bristol">Tipo 5 &middot; Escala Bristol</div>
+      <div class="sample-name">El <em>Err&aacute;tico Encantador</em></div>
+      <div class="sample-aroma">Ligero, ambiguo, siempre a punto de definirse. Como tus planes del fin de semana.</div>
+      <div class="sample-bacteria">Ruminococcus gnavus activo &middot; microbiota en transici&oacute;n &middot; potencial oculto considerable</div>
+    </div>
+
+  </div>
+  <div class="samples-cta">
+    <p class="samples-cta-text">&ldquo;¿Cu&aacute;l es el tuyo?&rdquo;</p>
+    <label for="file-input" class="hero-cta" style="cursor:pointer">Descubr&iacute; tu perfil &rarr;</label>
+  </div>
+</section>
 
 <!-- PRO -->
 <section id="pro">
@@ -147,14 +279,29 @@ footer { border-top: 1px solid var(--border); padding: 32px; text-align: center;
     <div class="paywall-label">CacaMatch Pro</div>
     <div class="paywall-title">El informe que su microbioma merece</div>
     <div class="paywall-sub">Un an&aacute;lisis profundo, descargable y compartible. Ciencia real aplicada con la seriedad que el tema exige.</div>
-    <div class="paywall-features">
-      <div class="paywall-feature">C&aacute;lculo detallado de bacterias por tipo Bristol + dieta declarada</div>
-      <div class="paywall-feature">An&aacute;lisis de compatibilidad ampliado con 8 perfiles intestinales</div>
-      <div class="paywall-feature">Informe PDF descargable con dise&ntilde;o editorial</div>
-      <div class="paywall-feature">Recomendaciones de microbioma con referencias cient&iacute;ficas reales</div>
-      <div class="paywall-feature">Historial de an&aacute;lisis: evoluci&oacute;n de su perfil en el tiempo</div>
+    <div class="pro-icons-row">
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128148;</span><span class="pro-icon-label">Compatibilidad</span></div>
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128197;</span><span class="pro-icon-label">Evoluci&oacute;n mensual</span></div>
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#127942;</span><span class="pro-icon-label">Ranking global</span></div>
+      <div class="pro-icon-item"><span class="pro-icon-emoji">&#128300;</span><span class="pro-icon-label">Bacterias exclusivas</span></div>
     </div>
-    <div class="paywall-price">USD 3 <span>pago &uacute;nico</span></div>
+    <div class="pro-blur-wrap">
+      <div class="pro-blur-inner">
+        <div style="font-family:'Playfair Display',serif;font-size:13px;font-style:italic;color:#4a4540;margin-bottom:8px;">Compatibilidad intestinal &mdash; Su perfil</div>
+        <div style="font-size:12px;color:#9a9088;margin-bottom:6px;">&#9670; Tipo 4 &amp; Tipo 3: Alta compatibilidad emocional. Microbiota complementaria.</div>
+        <div style="font-size:12px;color:#9a9088;margin-bottom:6px;">&#9670; Tipo 4 &amp; Tipo 6: Atracción intensa, conflicto inevitable. Toxicidad bacteriana moderada.</div>
+        <div style="font-size:12px;color:#9a9088;">&#9670; Tipo 4 &amp; Tipo 2: Respeto mutuo. Ritmos incompatibles. Relaci&oacute;n de largo plazo posible.</div>
+      </div>
+      <div class="pro-blur-overlay"><span class="pro-blur-badge">&#128274; Solo Pro</span></div>
+    </div>
+    <div class="paywall-features">
+      <div class="paywall-feature">Compatibilidad intestinal completa con los 7 tipos restantes</div>
+      <div class="paywall-feature">Informe mensual de evoluci&oacute;n de tu microbiota</div>
+      <div class="paywall-feature">Ranking global: Intestinos del Mes</div>
+      <div class="paywall-feature">Caricaturas bacterianas victorianas exclusivas de tu perfil</div>
+      <div class="paywall-feature">Informe PDF descargable con dise&ntilde;o editorial</div>
+    </div>
+    <div class="paywall-price">USD 3.99 <span>pago &uacute;nico</span></div>
     <button class="paywall-btn" onclick="goToPay()">Obtener informe completo &rarr;</button>
     <div class="paywall-note">Pago seguro &middot; Sin suscripci&oacute;n &middot; Sin almacenamiento de datos</div>
   </div>
@@ -186,6 +333,9 @@ function handleFile(file) {
   var reader = new FileReader();
   reader.onload = function(e) {
     fileData = e.target.result.split(',')[1];
+    var prev = document.getElementById('img-preview');
+    prev.src = e.target.result;
+    document.getElementById('img-preview-wrap').style.display = 'block';
     startAnalysis();
   };
   reader.readAsDataURL(file);
@@ -209,6 +359,26 @@ function startAnalysis() {
     }, delays[i]);
   });
   setTimeout(function() { document.getElementById('a-bar').style.width = '100%'; }, 100);
+  setTimeout(function() { var f = document.getElementById('ritual-final'); if(f) f.classList.add('show'); }, 9000);
+  var _secs = 10;
+  var _tInterval = setInterval(function() {
+    _secs--;
+    var tc = document.getElementById('timer-count');
+    if (tc) tc.textContent = _secs;
+    var tw = document.getElementById('ritual-timer');
+    if (_secs <= 3 && tw) tw.classList.add('urgent');
+    if (_secs <= 0) clearInterval(_tInterval);
+  }, 1000);
+  setTimeout(function() {
+    ['as-6','as-7','as-8'].forEach(function(id, i) {
+      setTimeout(function() {
+        var el = document.getElementById(id);
+        if (!el) return;
+        el.classList.add('show','active');
+        setTimeout(function() { el.classList.remove('active'); el.classList.add('done'); }, 1400);
+      }, i * 1600);
+    });
+  }, 5000);
 
   var apiDone = false, timerDone = false, apiData = null, apiErr = null;
   callClaudeAPI().then(function(r) {
@@ -225,28 +395,30 @@ function startAnalysis() {
 }
 
 async function callClaudeAPI() {
-  var sys = "Sos el sistema de an\u00e1lisis del Instituto de Psicogastroentretenimiento Aplicado.\nAnaliz\u00e1s fotos con tono cient\u00edfico-humor\u00edstico, elegante y sin vulgaridad.\nTu voz es la de un gastroenter\u00f3logo muy serio que esconde una iron\u00eda sutil.\nRespon\u00e9s \u00daNICAMENTE en JSON v\u00e1lido, sin markdown, sin texto adicional.\n\nEstructura JSON exacta:\n{\n  \"bristol\": \"Tipo N \u00b7 Escala Bristol\",\n  \"nombre\": \"El Algo\",\n  \"nombre_italico\": \"Algo\",\n  \"aroma\": \"descripci\u00f3n simb\u00f3lica del aroma en una l\u00ednea\",\n  \"personalidad\": \"2-3 oraciones sobre la personalidad deducida\",\n  \"bacterias\": \"descripci\u00f3n de bacterias predominantes estimadas\",\n  \"match\": [\n    { \"tipo\": \"Tipo X-Y\", \"desc\": \"descripci\u00f3n corta\" },\n    { \"tipo\": \"Tipo X-Y\", \"desc\": \"descripci\u00f3n corta\" }\n  ]\n}\n\nReglas:\n- Si la imagen NO es una foto de heces, igual gener\u00e1 un perfil interpretando creativamente lo que ves.\n- El nombre siempre es 'El [adjetivo]'; nombre_italico es solo el adjetivo.\n- Tono: serio, ir\u00f3nico, jam\u00e1s asqueroso ni vulgar.\n- Todo en espa\u00f1ol rioplatense.";
-  var resp = await fetch("https://api.anthropic.com/v1/messages", {
+  var GEMINI_KEY = "PEGA_TU_KEY_AQUI";
+  var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa=complementariedad inmune, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {bristol_tipo: Tipo N, bristol_desc: desc clinica, nombre: El Algo, nombre_italico: Algo, transito: velocidad, aroma: descripcion simbolica, bacterias_principales: [{nombre: Bacteria X, efecto: efecto documentado}], personalidad: 2-3 oraciones, neuroquimica: neurotransmisores, compatibilidad_mhc: {tipos_compatibles: Tipo X y Tipo Y}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias reales. Rioplatense ironico jamas vulgar.';
+  var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_KEY;
+  var resp = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 1000,
-      system: sys,
-      messages: [{ role: "user", content: [
-        { type: "image", source: { type: "base64", media_type: fileType, data: fileData } },
-        { type: "text", text: "Analiz\u00e1 esta muestra y devolv\u00e9 el JSON con el perfil intestinal completo." }
-      ]}]
+      systemInstruction: { parts: [{ text: sys }] },
+      contents: [{ role: "user", parts: [
+        { inlineData: { mimeType: fileType, data: fileData } },
+        { text: "Analiza esta muestra y devuelve el JSON con el perfil intestinal completo." }
+      ]}],
+      generationConfig: { maxOutputTokens: 1000, temperature: 0.7 }
     })
   });
   if (!resp.ok) throw new Error("Error API " + resp.status);
   var data = await resp.json();
-  var text = data.content.map(function(b) { return b.text || ''; }).join('');
-  return JSON.parse(text.replace(/```json|```/g, '').trim());
+  var text = data.candidates[0].content.parts[0].text;
+  return JSON.parse(text.replace(/```json|```/g, "").trim());
 }
 
 function showResult(p) {
   document.getElementById('analysis-widget').style.display = 'none';
+  document.getElementById('img-preview-wrap').style.display = 'none';
   var rw = document.getElementById('result-widget');
   rw.style.display = 'block';
   document.querySelector('.modal-box').scrollTop = 0;
@@ -254,15 +426,26 @@ function showResult(p) {
   rw.innerHTML = '<div class="result-card">'
     + '<div class="result-type">Su perfil intestinal</div>'
     + '<div class="result-name">' + nom + '</div>'
-    + '<div class="result-bristol">' + p.bristol + '</div>'
+    + '<div class="result-bristol">'+(p.bristol_tipo||p.bristol||'')+(p.bristol_desc?' &middot; '+p.bristol_desc:'')+'</div>'
     + '<div class="result-divider"></div>'
-    + '<div class="result-section-title">Aroma simb\u00f3lico</div><div class="result-text">' + p.aroma + '</div>'
-    + '<div class="result-section-title">Perfil de personalidad</div><div class="result-text">' + p.personalidad + '</div>'
-    + '<div class="result-section-title">Bacterias predominantes (estimaci\u00f3n)</div><div class="result-text">' + p.bacterias + '</div>'
-    + '<button class="share-btn" id="sbtn">&#9670; Compartir mi perfil</button>'
-    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'
-    + '</div>';
-  document.getElementById('sbtn').onclick = function() { shareResult(p.nombre); };
+    + (p.transito?'<div class="result-section-title">Tr&aacute;nsito intestinal</div><div class="result-text">'+p.transito+'</div>':'')
+    + '<div class="result-section-title">Aroma simb&oacute;lico</div><div class="result-text">'+(p.aroma||'')+'</div>'
+    + '<div class="result-section-title">Personalidad</div><div class="result-text">'+(p.personalidad||'')+'</div>'
+    + (p.neuroquimica?'<div class="result-section-title">Neuroquímica estimada</div><div class="result-text">'+p.neuroquimica+'</div>':'')
+    + (function(){var r='';if(p.bacterias_principales&&p.bacterias_principales.length){p.bacterias_principales.forEach(function(b){r+='<div class="bacteria-row"><span class="bacteria-name">'+b.nombre+'</span><span class="bacteria-efecto">'+b.efecto+'</span></div>';});}else{r='<div class="result-text">'+(p.bacterias||'')+'</div>';}return '<div class="result-section-title">Bacterias predominantes</div><div class="bacteria-list">'+r+'</div>';})()
+    + '<div class="result-divider"></div>'
+    + '<div class="mhc-block">'
+    + '<div class="result-section-title">Compatibilidad olfativa &middot; MHC</div>'
+    + '<div class="mhc-science">Seg&uacute;n Wedekind (1995, U. Berna), la atracci&oacute;n olfativa refleja complementariedad del sistema inmune. El olor corporal proyecta el microbioma cutan&eacute;o, vinculado al intestinal. Su perfil sugiere tipos espec&iacute;ficos de alta compatibilidad.</div>'
+    + '<div class="mhc-blur-wrap"><div class="mhc-blur">'+(p.compatibilidad_mhc&&p.compatibilidad_mhc.tipos_compatibles?'Compatible: '+p.compatibilidad_mhc.tipos_compatibles+' &middot; Complementariedad MHC alta &middot; Atracci&oacute;n olfativa estimada: intensa':'Compatible: Tipo 3 y Tipo 5 &middot; Alta complementariedad inmune estimada')+'</div>'
+    + '<div class="mhc-blur-overlay"><button class="mhc-unlock-btn" onclick="goToPay()">&#128274; Desbloquear con PRO &rarr;</button></div></div>'
+    + '</div>'
+    + '<div class="result-share-row">'+ '<button class="result-share-icon" id="share-x-btn" title="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>'+ '<button class="result-share-icon" id="share-wa-btn" title="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></button>'+ '<button class="result-share-icon" id="share-fb-btn" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></button>'+ '<button class="result-share-icon" id="sbtn" title="Más (IG, TikTok...)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button>'+ '</div>'
+    + '<div class="pro-banner">'    + '<div class="pro-banner-label">Esto es solo el comienzo</div>'    + '<div class="pro-banner-text">Descubr&iacute; con qui&eacute;n sos compatible intestinalmente. Evit&aacute; desastres microbiol&oacute;gicos predecibles.</div>'    + '<div class="pro-banner-blur">&#9670; Compatible probable: Tipo 3–5 &middot; Alta compatibilidad emocional &middot; Microbiota complementaria</div>'    + '<button class="pro-banner-btn" onclick="goToPay()">Desbloquear PRO &rarr; USD 3.99</button>'    + '</div>'    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'    + '</div>';
+  document.getElementById('sbtn').onclick = function() { shareResult(p.nombre, 'more'); };
+  document.getElementById('share-x-btn').onclick = function() { shareResult(p.nombre, 'x'); };
+  document.getElementById('share-wa-btn').onclick = function() { shareResult(p.nombre, 'wa'); };
+  document.getElementById('share-fb-btn').onclick = function() { shareResult(p.nombre, 'fb'); };
   window.scrollTo({ top: rw.offsetTop - 80, behavior: 'smooth' });
 }
 
@@ -271,16 +454,28 @@ function showError(msg) {
   var rw = document.getElementById('result-widget');
   rw.style.display = 'block';
   document.querySelector('.modal-box').scrollTop = 0;
-  rw.innerHTML = '<div class="error-card"><span class="error-icon">&#9672;</span><div class="error-text">El laboratorio encontr\u00f3 dificultades t\u00e9cnicas procesando su muestra.<br>Su microbioma no tiene la culpa.</div><button class="analyze-btn" onclick="resetModal()">Intentar nuevamente</button></div>';
+  rw.innerHTML = '<div class="error-card"><span class="error-icon">&#9672;</span><div class="error-text">El laboratorio encontró dificultades técnicas procesando su muestra.<br>Su microbioma no tiene la culpa.</div><button class="analyze-btn" onclick="resetModal()">Intentar nuevamente</button><br><button class="share-error-btn" onclick="shareError()">Compartir esta odisea intestinal</button></div>';
 }
 
-function shareResult(nombre) {
-  var text = 'Hice el test de CacaMatch y soy "' + nombre + '". La escala de Bristol nunca minti\u00f3. \ud83d\udca9';
-  if (navigator.share) { navigator.share({ text: text }); }
-  else { navigator.clipboard.writeText(text); alert('Copiado al portapapeles. Peg\u00e1lo donde quieras.'); }
+function shareResult(nombre, via) {
+  var msg = 'Según el Instituto de Psicogastroentretenimiento, soy "' + nombre + '". La escala de Bristol nunca mintió. ¿Y vos? https://cacamatch.vercel.app/';
+  var enc = encodeURIComponent(msg);
+  if (via === 'x') { window.open('https://twitter.com/intent/tweet?text=' + enc, '_blank'); }
+  else if (via === 'wa') { window.open('https://wa.me/?text=' + enc, '_blank'); }
+  else if (via === 'fb') { window.open('https://www.facebook.com/sharer/sharer.php?u=https://cacamatch.vercel.app&quote=' + enc, '_blank'); }
+  else if (via === 'more') {
+    if (navigator.share) { navigator.share({ text: msg }); }
+    else { navigator.clipboard.writeText(msg); alert('Copiado. Pegálo en IG, TikTok o donde quieras.'); }
+  }
 }
 
-function goToPay() { alert('Integraci\u00f3n de pago pr\u00f3ximamente. Su microbioma agradece la paciencia.'); }
+function shareError() {
+  var txt = encodeURIComponent('Mi microbiota me trollé hoy en CacaMatch. El laboratorio no pudo con ella. \u00bfY la tuya? https://cacamatch.vercel.app/');
+  if (navigator.share) { navigator.share({ text: decodeURIComponent(txt) }); }
+  else { window.open('https://wa.me/?text=' + txt, '_blank'); }
+}
+
+function goToPay() { alert('Integración de pago próximamente. Su microbioma agradece la paciencia.'); }
 
 function resetModal() {
   document.getElementById('modal').classList.remove('active');
@@ -294,6 +489,12 @@ function resetModal() {
   bar.style.width = '0';
   setTimeout(function(){ bar.style.transition = 'width 10s linear'; }, 50);
   document.getElementById('file-input').value = '';
+  document.getElementById('img-preview-wrap').style.display = 'none';
+  document.getElementById('img-preview').src = '';
+  var rf = document.getElementById('ritual-final'); if(rf) rf.classList.remove('show');
+  var tw = document.getElementById('ritual-timer'); if(tw) tw.classList.remove('urgent');
+  var tc = document.getElementById('timer-count'); if(tc) tc.textContent = '10';
+  document.querySelectorAll('.a-step-extra').forEach(function(el){el.classList.remove('show','active','done');});
   fileData = null; fileType = null;
 }
 document.getElementById('modal-close-btn').addEventListener('click', resetModal);
@@ -306,17 +507,20 @@ document.getElementById('modal').addEventListener('click', function(e) { if (e.t
   <div class="modal-box">
     <div class="modal-close"><button class="modal-close-btn" id="modal-close-btn">&#215; Cerrar</button></div>
     <div class="modal-inner">
+      <div class="img-preview-wrap" id="img-preview-wrap"><img id="img-preview" src="" alt=""><div class="img-preview-overlay">Procesando su contribuci&oacute;n al discurso civilizatorio&hellip;</div></div>
       <div id="analysis-widget">
         <div class="analysis-running">
           <div class="analysis-title">Procesando su muestra informativa</div>
           <div class="analysis-steps">
-            <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> Analizando caracter&iacute;sticas morfol&oacute;gicas...</div>
-            <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Clasificando en escala Bristol...</div>
-            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Estimando microbioma predominante...</div>
-            <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Determinando compatibilidad intestinal...</div>
-            <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Redactando su perfil con dignidad...</div>
+            <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> Observando morfolog&iacute;a&hellip;</div>
+            <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Midiendo la rebeld&iacute;a de la textura&hellip;</div>
+            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Estimando el temperamento microbiano&hellip;</div>
+            <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Clasificando en escala Bristol&hellip;</div>
+            <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Traduciendo biolog&iacute;a en car&aacute;cter&hellip;</div>
           </div>
           <div class="a-bar-wrap"><div class="a-bar" id="a-bar"></div></div>
+          <div id="extra-steps"><div class="a-step-extra" id="as-6"><span class="a-step-icon">&#9672;</span> Consultando archivos del Instituto&hellip;</div><div class="a-step-extra" id="as-7"><span class="a-step-icon">&#9672;</span> Verificando consistencia epistemol&oacute;gica&hellip;</div><div class="a-step-extra" id="as-8"><span class="a-step-icon">&#9672;</span> Redactando con la gravedad que el tema merece&hellip;</div></div><p class="ritual-timer" id="ritual-timer">Lectura victoriana estimada: <span id="timer-count">10</span> segundos restantes&hellip;</p>
+          <p class="ritual-final" id="ritual-final">Nadie es solo lo que evac&uacute;a. Pero es un comienzo.</p>
         </div>
       </div>
       <div id="result-widget" style="display:none"></div>
