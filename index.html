@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CacaMatch &mdash; Instituto de Psicogastroentretenimiento Aplicado</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #faf8f3; --ink: #1a1714; --ink2: #4a4540; --ink3: #9a9088;
+  --gold: #c4973a; --border: #e0d8cc; --card: #f3efe8;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: var(--bg); border-bottom: 1px solid var(--border); z-index: 100; }
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 400; }
+.nav-logo em { font-style: italic; color: var(--gold); }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--ink3); transition: color 0.2s; }
+.nav-links a:hover { color: var(--ink); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 70px 32px 32px; max-width: 720px; margin: 0 auto; text-align: center; }
+.hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; color: var(--ink3); text-transform: uppercase; margin-bottom: 10px; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(52px, 10vw, 96px); font-weight: 400; line-height: 1; margin-bottom: 10px; }
+.hero-title em { font-style: italic; color: var(--gold); }
+.hero-diamond { color: var(--gold); font-size: 18px; margin-bottom: 10px; display: block; }
+.hero-tagline { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 22px); font-style: italic; font-weight: 400; color: var(--ink2); margin-bottom: 8px; line-height: 1.4; }
+.hero-sub { font-size: 15px; color: var(--ink3); max-width: 480px; margin: 0 auto 20px; line-height: 1.7; }
+.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+.hero-cta { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: var(--bg); background: var(--ink); padding: 16px 40px; border: none; cursor: pointer; transition: background 0.2s; display: inline-block; }
+.hero-cta:hover { background: #2d2926; box-shadow: 0 0 0 2px var(--gold); }
+.hero-illustration { width: 56px; height: 56px; margin: 0 auto 12px; opacity: 0.18; display: block; }
+.disclaimer-hero { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--ink3); line-height: 1.8; max-width: 480px; margin: 0 auto; }
+
+/* DIVIDER */
+.divider { width: 1px; height: 60px; background: var(--border); margin: 0 auto; }
+
+/* SECTIONS */
+section { padding: 80px 32px; max-width: 720px; margin: 0 auto; }
+.section-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 40px; text-align: center; }
+
+
+.analyze-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--ink); padding: 16px 40px; border: none; cursor: pointer; transition: background 0.2s; display: block; width: 100%; }
+.analyze-btn:hover { background: var(--gold); }
+
+/* ANALISIS RUNNING */
+
+/* RESULTADO */
+#result-widget { display: none; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.result-card { border: 1px solid var(--border); padding: 40px; animation: fadeIn 0.5s ease; }
+.result-type { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 12px; }
+.result-name { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 400; margin-bottom: 8px; line-height: 1.1; }
+.result-name em { font-style: italic; color: var(--gold); }
+.result-bristol { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--ink3); margin-bottom: 16px; }
+.result-divider { height: 1px; background: var(--border); margin: 24px 0; }
+.result-section-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; color: var(--ink3); text-transform: uppercase; margin-bottom: 10px; }
+.result-text { font-size: 15px; color: var(--ink2); line-height: 1.7; font-family: 'Playfair Display', serif; font-style: italic; margin-bottom: 20px; }
+.share-btn { display: block; width: 100%; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink); background: transparent; padding: 14px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; margin-top: 24px; }
+.share-btn:hover { border-color: var(--ink); }
+.retry-btn { display: block; width: 100%; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--ink3); background: transparent; padding: 12px; border: none; cursor: pointer; text-decoration: underline; margin-top: 12px; }
+.error-card { border: 1px solid #e0c0c0; padding: 40px; text-align: center; }
+.error-icon { font-size: 24px; margin-bottom: 10px; display: block; }
+.error-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: var(--ink2); margin-bottom: 24px; line-height: 1.6; }
+
+/* PRO */
+#pro { border-top: 1px solid var(--border); }
+.paywall { border: 1px solid var(--gold); padding: 40px; text-align: center; background: linear-gradient(135deg, #fdf8ee, #faf5e4); }
+.paywall-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 16px; }
+.paywall-title { font-family: 'Playfair Display', serif; font-size: 28px; font-style: italic; margin-bottom: 12px; }
+.paywall-sub { font-size: 14px; color: var(--ink3); margin-bottom: 28px; line-height: 1.6; }
+.paywall-features { margin: 0 auto 28px; text-align: left; max-width: 420px; }
+.paywall-feature { font-size: 13px; color: var(--ink2); padding: 9px 0; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+.paywall-feature::before { content: "\25C6"; color: var(--gold); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+.paywall-price { font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 700; margin: 28px 0 4px; }
+.paywall-price span { font-size: 18px; font-weight: 400; color: var(--ink3); }
+.paywall-btn { display: inline-block; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--bg); background: var(--ink); padding: 16px 48px; border: none; cursor: pointer; transition: background 0.2s; margin-top: 8px; }
+.paywall-btn:hover { background: var(--gold); }
+.paywall-note { font-size: 11px; color: var(--ink3); margin-top: 16px; font-family: 'DM Mono', monospace; letter-spacing: 0.5px; }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 32px; text-align: center; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 16px; margin-bottom: 8px; }
+.footer-logo em { font-style: italic; color: var(--gold); }
+.footer-note { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 1px; color: var(--ink3); line-height: 2; }
+
+@media (max-width: 560px) {
+  nav { padding: 14px 20px; } .nav-links { gap: 16px; }
+  .hero { padding: 100px 20px 40px; }
+  section { padding: 60px 20px; }
+}
+
+.modal-overlay { display:none; position:fixed; inset:0; z-index:200; background:rgba(26,23,20,0.72); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:20px; }
+.modal-overlay.active { display:flex; }
+.modal-box { background:var(--bg); border:1px solid var(--border); max-width:540px; width:100%; max-height:90vh; overflow-y:auto; animation:modalIn 0.35s ease; }
+@keyframes modalIn { from { opacity:0; transform:translateY(20px) scale(0.97); } to { opacity:1; transform:none; } }
+.modal-close { position:sticky; top:0; display:flex; justify-content:flex-end; padding:14px 20px 0; background:var(--bg); }
+.modal-close-btn { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); background:none; border:none; cursor:pointer; transition:color 0.2s; }
+.modal-close-btn:hover { color:var(--ink); }
+.modal-inner { padding:32px 40px 40px; }
+.analysis-running { border:1px solid var(--border); padding:40px; text-align:center; }
+.analysis-title { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:3px; color:var(--ink3); text-transform:uppercase; margin-bottom:28px; }
+.analysis-steps { margin-bottom:32px; text-align:left; }
+.a-step { font-size:13px; color:var(--ink3); padding:10px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:12px; transition:color 0.4s; }
+.a-step.done { color:var(--ink); }
+.a-step.active { color:var(--gold); }
+.a-step-icon { font-size:10px; width:14px; flex-shrink:0; }
+.a-bar-wrap { height:2px; background:var(--border); margin-top:28px; }
+.a-bar { height:2px; background:var(--gold); width:0; transition:width 10s linear; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Caca<em>Match</em></div>
+  <div class="nav-links">
+    <a href="#pro">Pro</a>
+  </div>
+</nav>
+
+<!-- HERO: ocupa 100vh, termina con disclaimer visible -->
+<div class="hero">
+  <svg class="hero-illustration" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><ellipse cx="50" cy="50" rx="18" ry="11" stroke="#c4973a" stroke-width="1.2" fill="none"/><line x1="50" y1="39" x2="50" y2="33" stroke="#c4973a" stroke-width="1"/><circle cx="50" cy="31" r="2.5" stroke="#c4973a" stroke-width="1" fill="none"/><line x1="50" y1="61" x2="50" y2="67" stroke="#c4973a" stroke-width="1"/><circle cx="50" cy="69" r="2.5" stroke="#c4973a" stroke-width="1" fill="none"/><line x1="32" y1="50" x2="26" y2="50" stroke="#c4973a" stroke-width="1"/><circle cx="24" cy="50" r="2.5" stroke="#c4973a" stroke-width="1" fill="none"/><line x1="68" y1="50" x2="74" y2="50" stroke="#c4973a" stroke-width="1"/><circle cx="76" cy="50" r="2.5" stroke="#c4973a" stroke-width="1" fill="none"/><path d="M36 42 Q28 36 24 30" stroke="#c4973a" stroke-width="0.9" fill="none"/><path d="M64 42 Q72 36 76 30" stroke="#c4973a" stroke-width="0.9" fill="none"/><path d="M36 58 Q28 64 24 70" stroke="#c4973a" stroke-width="0.9" fill="none"/><path d="M64 58 Q72 64 76 70" stroke="#c4973a" stroke-width="0.9" fill="none"/><line x1="38" y1="47" x2="62" y2="47" stroke="#c4973a" stroke-width="0.5" opacity="0.5"/><line x1="36" y1="50" x2="64" y2="50" stroke="#c4973a" stroke-width="0.5" opacity="0.5"/><line x1="38" y1="53" x2="62" y2="53" stroke="#c4973a" stroke-width="0.5" opacity="0.5"/><ellipse cx="20" cy="22" rx="7" ry="4" stroke="#c4973a" stroke-width="0.9" fill="none" transform="rotate(-30 20 22)"/><line x1="20" y1="18" x2="17" y2="12" stroke="#c4973a" stroke-width="0.8"/><line x1="20" y1="26" x2="23" y2="32" stroke="#c4973a" stroke-width="0.8"/><ellipse cx="80" cy="78" rx="7" ry="4" stroke="#c4973a" stroke-width="0.9" fill="none" transform="rotate(-30 80 78)"/><line x1="80" y1="74" x2="77" y2="68" stroke="#c4973a" stroke-width="0.8"/><line x1="80" y1="82" x2="83" y2="88" stroke="#c4973a" stroke-width="0.8"/><circle cx="14" cy="60" r="1.5" fill="#c4973a" opacity="0.35"/><circle cx="86" cy="38" r="1.5" fill="#c4973a" opacity="0.35"/><circle cx="30" cy="84" r="1" fill="#c4973a" opacity="0.35"/><circle cx="70" cy="16" r="1" fill="#c4973a" opacity="0.35"/></svg>
+  <div class="hero-eyebrow">Instituto de Psicogastroentretenimiento Aplicado</div>
+  <h1 class="hero-title">Caca<em>Match</em></h1>
+  <span class="hero-diamond">&#9670;</span>
+  <p class="hero-tagline">&ldquo;Lo que est&aacute; en el inodoro es el nuevo hor&oacute;scopo&rdquo;</p>
+  <p class="hero-sub">Clasificaci&oacute;n Bristol. Perfil de personalidad intestinal. Ciencia real, humor seco, cero vulgaridad. Sub&iacute; tu foto. Descubr&iacute; qui&eacute;n sos desde adentro.</p>
+  <div class="hero-btns">
+    <label for="file-input" class="hero-cta" style="cursor:pointer">Iniciar an&aacute;lisis</label>
+    <input type="file" id="file-input" accept="image/*" style="display:none">
+  </div>
+  <p class="disclaimer-hero">Esto no es un diagn&oacute;stico m&eacute;dico. Es entretenimiento con base cient&iacute;fica real. No almacenamos ning&uacute;n dato. Su dignidad permanece intacta.</p>
+</div>
+
+
+<div class="divider"></div>
+
+<!-- PRO -->
+<section id="pro">
+  <div class="section-label">An&aacute;lisis completo</div>
+  <div class="paywall">
+    <div class="paywall-label">CacaMatch Pro</div>
+    <div class="paywall-title">El informe que su microbioma merece</div>
+    <div class="paywall-sub">Un an&aacute;lisis profundo, descargable y compartible. Ciencia real aplicada con la seriedad que el tema exige.</div>
+    <div class="paywall-features">
+      <div class="paywall-feature">C&aacute;lculo detallado de bacterias por tipo Bristol + dieta declarada</div>
+      <div class="paywall-feature">An&aacute;lisis de compatibilidad ampliado con 8 perfiles intestinales</div>
+      <div class="paywall-feature">Informe PDF descargable con dise&ntilde;o editorial</div>
+      <div class="paywall-feature">Recomendaciones de microbioma con referencias cient&iacute;ficas reales</div>
+      <div class="paywall-feature">Historial de an&aacute;lisis: evoluci&oacute;n de su perfil en el tiempo</div>
+    </div>
+    <div class="paywall-price">USD 3 <span>pago &uacute;nico</span></div>
+    <button class="paywall-btn" onclick="goToPay()">Obtener informe completo &rarr;</button>
+    <div class="paywall-note">Pago seguro &middot; Sin suscripci&oacute;n &middot; Sin almacenamiento de datos</div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Caca<em>Match</em></div>
+  <div class="footer-note">
+    Instituto de Psicogastroentretenimiento Aplicado<br>
+    No almacenamos datos. No emitimos diagn&oacute;sticos. S&iacute; respetamos su microbioma.<br>
+    &copy; 2026 &middot; Trabajo en progreso &middot; Powered by IA &amp; Bristol Scale<br>
+    <a href="https://github.com" target="_blank" style="color:var(--gold);text-decoration:none;letter-spacing:1px;">GitHub &rarr;</a>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var fileData = null;
+var fileType = null;
+
+
+document.getElementById('file-input').addEventListener('change', function() {
+  if (this.files[0]) handleFile(this.files[0]);
+});
+
+function handleFile(file) {
+  if (!file.type.startsWith('image/')) return;
+  fileType = file.type;
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    fileData = e.target.result.split(',')[1];
+    startAnalysis();
+  };
+  reader.readAsDataURL(file);
+}
+
+function startAnalysis() {
+  if (!fileData) return;
+  document.getElementById('modal').classList.add('active');
+  document.getElementById('analysis-widget').style.display = 'block';
+  document.getElementById('result-widget').style.display = 'none';
+  
+
+  var steps = ['as-1','as-2','as-3','as-4','as-5'];
+  var delays = [0, 1800, 3600, 5400, 7200];
+  steps.forEach(function(id, i) {
+    setTimeout(function() {
+      if (i > 0) document.getElementById(steps[i-1]).classList.remove('active');
+      var el = document.getElementById(id);
+      el.classList.add('active');
+      setTimeout(function() { el.classList.add('done'); }, 1600);
+    }, delays[i]);
+  });
+  setTimeout(function() { document.getElementById('a-bar').style.width = '100%'; }, 100);
+
+  var apiDone = false, timerDone = false, apiData = null, apiErr = null;
+  callClaudeAPI().then(function(r) {
+    apiData = r; apiDone = true;
+    if (timerDone) showResult(apiData);
+  }).catch(function(e) {
+    apiErr = e.message; apiDone = true;
+    if (timerDone) showError(apiErr);
+  });
+  setTimeout(function() {
+    timerDone = true;
+    if (apiDone) { if (apiData) showResult(apiData); else showError(apiErr); }
+  }, 10000);
+}
+
+async function callClaudeAPI() {
+  var sys = "Sos el sistema de an\u00e1lisis del Instituto de Psicogastroentretenimiento Aplicado.\nAnaliz\u00e1s fotos con tono cient\u00edfico-humor\u00edstico, elegante y sin vulgaridad.\nTu voz es la de un gastroenter\u00f3logo muy serio que esconde una iron\u00eda sutil.\nRespon\u00e9s \u00daNICAMENTE en JSON v\u00e1lido, sin markdown, sin texto adicional.\n\nEstructura JSON exacta:\n{\n  \"bristol\": \"Tipo N \u00b7 Escala Bristol\",\n  \"nombre\": \"El Algo\",\n  \"nombre_italico\": \"Algo\",\n  \"aroma\": \"descripci\u00f3n simb\u00f3lica del aroma en una l\u00ednea\",\n  \"personalidad\": \"2-3 oraciones sobre la personalidad deducida\",\n  \"bacterias\": \"descripci\u00f3n de bacterias predominantes estimadas\",\n  \"match\": [\n    { \"tipo\": \"Tipo X-Y\", \"desc\": \"descripci\u00f3n corta\" },\n    { \"tipo\": \"Tipo X-Y\", \"desc\": \"descripci\u00f3n corta\" }\n  ]\n}\n\nReglas:\n- Si la imagen NO es una foto de heces, igual gener\u00e1 un perfil interpretando creativamente lo que ves.\n- El nombre siempre es 'El [adjetivo]'; nombre_italico es solo el adjetivo.\n- Tono: serio, ir\u00f3nico, jam\u00e1s asqueroso ni vulgar.\n- Todo en espa\u00f1ol rioplatense.";
+  var resp = await fetch("https://api.anthropic.com/v1/messages", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 1000,
+      system: sys,
+      messages: [{ role: "user", content: [
+        { type: "image", source: { type: "base64", media_type: fileType, data: fileData } },
+        { type: "text", text: "Analiz\u00e1 esta muestra y devolv\u00e9 el JSON con el perfil intestinal completo." }
+      ]}]
+    })
+  });
+  if (!resp.ok) throw new Error("Error API " + resp.status);
+  var data = await resp.json();
+  var text = data.content.map(function(b) { return b.text || ''; }).join('');
+  return JSON.parse(text.replace(/```json|```/g, '').trim());
+}
+
+function showResult(p) {
+  document.getElementById('analysis-widget').style.display = 'none';
+  var rw = document.getElementById('result-widget');
+  rw.style.display = 'block';
+  document.querySelector('.modal-box').scrollTop = 0;
+  var nom = p.nombre_italico ? p.nombre.replace(p.nombre_italico, '<em>' + p.nombre_italico + '</em>') : p.nombre;
+  rw.innerHTML = '<div class="result-card">'
+    + '<div class="result-type">Su perfil intestinal</div>'
+    + '<div class="result-name">' + nom + '</div>'
+    + '<div class="result-bristol">' + p.bristol + '</div>'
+    + '<div class="result-divider"></div>'
+    + '<div class="result-section-title">Aroma simb\u00f3lico</div><div class="result-text">' + p.aroma + '</div>'
+    + '<div class="result-section-title">Perfil de personalidad</div><div class="result-text">' + p.personalidad + '</div>'
+    + '<div class="result-section-title">Bacterias predominantes (estimaci\u00f3n)</div><div class="result-text">' + p.bacterias + '</div>'
+    + '<button class="share-btn" id="sbtn">&#9670; Compartir mi perfil</button>'
+    + '<button class="retry-btn" onclick="resetModal()">Analizar otra muestra</button>'
+    + '</div>';
+  document.getElementById('sbtn').onclick = function() { shareResult(p.nombre); };
+  window.scrollTo({ top: rw.offsetTop - 80, behavior: 'smooth' });
+}
+
+function showError(msg) {
+  document.getElementById('analysis-widget').style.display = 'none';
+  var rw = document.getElementById('result-widget');
+  rw.style.display = 'block';
+  document.querySelector('.modal-box').scrollTop = 0;
+  rw.innerHTML = '<div class="error-card"><span class="error-icon">&#9672;</span><div class="error-text">El laboratorio encontr\u00f3 dificultades t\u00e9cnicas procesando su muestra.<br>Su microbioma no tiene la culpa.</div><button class="analyze-btn" onclick="resetModal()">Intentar nuevamente</button></div>';
+}
+
+function shareResult(nombre) {
+  var text = 'Hice el test de CacaMatch y soy "' + nombre + '". La escala de Bristol nunca minti\u00f3. \ud83d\udca9';
+  if (navigator.share) { navigator.share({ text: text }); }
+  else { navigator.clipboard.writeText(text); alert('Copiado al portapapeles. Peg\u00e1lo donde quieras.'); }
+}
+
+function goToPay() { alert('Integraci\u00f3n de pago pr\u00f3ximamente. Su microbioma agradece la paciencia.'); }
+
+function resetModal() {
+  document.getElementById('modal').classList.remove('active');
+  document.getElementById('analysis-widget').style.display = 'block';
+  document.getElementById('result-widget').style.display = 'none';
+  document.getElementById('result-widget').innerHTML = '';
+  document.querySelectorAll('.a-step').forEach(function(el) { el.classList.remove('active','done'); });
+  document.getElementById('as-1').classList.add('active');
+  var bar = document.getElementById('a-bar');
+  bar.style.transition = 'none';
+  bar.style.width = '0';
+  setTimeout(function(){ bar.style.transition = 'width 10s linear'; }, 50);
+  document.getElementById('file-input').value = '';
+  fileData = null; fileType = null;
+}
+document.getElementById('modal-close-btn').addEventListener('click', resetModal);
+document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) resetModal(); });
+
+}); // DOMContentLoaded
+</script>
+
+<div class="modal-overlay" id="modal">
+  <div class="modal-box">
+    <div class="modal-close"><button class="modal-close-btn" id="modal-close-btn">&#215; Cerrar</button></div>
+    <div class="modal-inner">
+      <div id="analysis-widget">
+        <div class="analysis-running">
+          <div class="analysis-title">Procesando su muestra informativa</div>
+          <div class="analysis-steps">
+            <div class="a-step active" id="as-1"><span class="a-step-icon">&#9672;</span> Analizando caracter&iacute;sticas morfol&oacute;gicas...</div>
+            <div class="a-step" id="as-2"><span class="a-step-icon">&#9672;</span> Clasificando en escala Bristol...</div>
+            <div class="a-step" id="as-3"><span class="a-step-icon">&#9672;</span> Estimando microbioma predominante...</div>
+            <div class="a-step" id="as-4"><span class="a-step-icon">&#9672;</span> Determinando compatibilidad intestinal...</div>
+            <div class="a-step" id="as-5"><span class="a-step-icon">&#9672;</span> Redactando su perfil con dignidad...</div>
+          </div>
+          <div class="a-bar-wrap"><div class="a-bar" id="a-bar"></div></div>
+        </div>
+      </div>
+      <div id="result-widget" style="display:none"></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
