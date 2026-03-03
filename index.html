@@ -395,25 +395,25 @@ function startAnalysis() {
 }
 
 async function callClaudeAPI() {
-  var GEMINI_KEY = "PEGA_TU_KEY_AQUI";
-  var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa=complementariedad inmune, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {bristol_tipo: Tipo N, bristol_desc: desc clinica, nombre: El Algo, nombre_italico: Algo, transito: velocidad, aroma: descripcion simbolica, bacterias_principales: [{nombre: Bacteria X, efecto: efecto documentado}], personalidad: 2-3 oraciones, neuroquimica: neurotransmisores, compatibilidad_mhc: {tipos_compatibles: Tipo X y Tipo Y}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias reales. Rioplatense ironico jamas vulgar.';
-  var url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + GEMINI_KEY;
-  var resp = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
+  var ANTHROPIC_KEY = "PEGA_TU_KEY_AQUI";
+  var sys = 'Sos el sistema de analisis del Instituto de Psicogastroentretenimiento Aplicado. Tu voz: gastroenterologo serio con ironia sutil. Jamas vulgar. CONOCIMIENTO BASE: Escala Bristol Tipo 1-2=transito lento Firmicutes elevados, Tipo 3-4=optimo Bacteroidetes balanceados, Tipo 5-6=acelerado Proteobacteria aumentada, Tipo 7=muy rapido estres posible. Gut-brain: ~95pct serotonina intestinal. Lactobacillus rhamnosus reduce ansiedad (Bravo 2011 PNAS). Bifidobacterium longum reduce cortisol (Allen 2016). L.reuteri eleva oxitocina (Buffington 2016 Cell). MHC Wedekind 1995: atraccion olfativa=complementariedad inmune, tipos 2+5 y 3+6=mayor complementariedad. RESPONDES UNICAMENTE JSON sin markdown, estructura exacta: {"bristol_tipo":"Tipo N","bristol_desc":"desc clinica","nombre":"El Algo","nombre_italico":"Algo","transito":"velocidad","aroma":"descripcion simbolica","bacterias_principales":[{"nombre":"Bacteria X","efecto":"efecto documentado"}],"personalidad":"2-3 oraciones","neuroquimica":"neurotransmisores","compatibilidad_mhc":{"tipos_compatibles":"Tipo X y Tipo Y"}}. Reglas: si no es heces interpreta creativamente. nombre=El adjetivo. 2-3 bacterias reales. Rioplatense ironico jamas vulgar.';
+  var resp = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-api-key': ANTHROPIC_KEY, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-allow-browser': 'true' },
     body: JSON.stringify({
-      systemInstruction: { parts: [{ text: sys }] },
-      contents: [{ role: "user", parts: [
-        { inlineData: { mimeType: fileType, data: fileData } },
-        { text: "Analiza esta muestra y devuelve el JSON con el perfil intestinal completo." }
-      ]}],
-      generationConfig: { maxOutputTokens: 1000, temperature: 0.7 }
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: sys,
+      messages: [{ role: 'user', content: [
+        { type: 'image', source: { type: 'base64', media_type: fileType, data: fileData } },
+        { type: 'text', text: 'Analiza esta muestra y devuelve el JSON con el perfil intestinal completo.' }
+      ]}]
     })
   });
-  if (!resp.ok) throw new Error("Error API " + resp.status);
+  if (!resp.ok) throw new Error('Error API ' + resp.status);
   var data = await resp.json();
-  var text = data.candidates[0].content.parts[0].text;
-  return JSON.parse(text.replace(/```json|```/g, "").trim());
+  var text = data.content.map(function(b) { return b.text || ''; }).join('');
+  return JSON.parse(text.replace(/```json|```/g, '').trim());
 }
 
 function showResult(p) {
